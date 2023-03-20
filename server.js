@@ -61,6 +61,11 @@ io.on('connection', function(socket){
 		this.player.emit('timestamp', timestamp);
 	});
 
+	socket.on('sco', function(sco) {
+		this.display.emit('sco',sco);
+		//console.log('----> Sco called from server ' + sco);
+	});
+
 	function createGame(player, display) {
 		var gameID = makeid();
 		player.gameID = display.gameID = gameID;
